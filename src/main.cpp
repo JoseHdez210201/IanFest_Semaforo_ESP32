@@ -8,6 +8,7 @@
 // Declaración de prototipo de funciones
 void secuencia();
 void verde();
+void verde_parpadea();
 void amarillo();
 void rojo();
 
@@ -27,6 +28,7 @@ void loop() {
 void secuencia(){
   verde();
   delay(5000);
+  verde_parpadea();
   amarillo();
   delay(5000);
   rojo();
@@ -37,6 +39,15 @@ void verde(){
   digitalWrite(RELAY_1_PIN, LOW);
   digitalWrite(RELAY_2_PIN, HIGH);
   digitalWrite(RELAY_3_PIN, HIGH);
+}
+
+void verde_parpadea(){
+  for (int i=0; i<4; i++) {
+    digitalWrite(RELAY_1_PIN, LOW);
+    delay(500);
+    digitalWrite(RELAY_1_PIN, HIGH);
+    delay(500);
+  }
 }
 
 void amarillo(){
